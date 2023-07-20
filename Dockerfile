@@ -4,6 +4,8 @@ from node:20 as build-deps
 # set working directory
 WORKDIR /home/avenenga/drewvpopc-live
 
+ENV PATH /home/avenenga/node_modules/.bin:$PATH
+
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . ./
