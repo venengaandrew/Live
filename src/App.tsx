@@ -2,6 +2,10 @@ import React from 'react';
 import logo from './logo.jpg';
 import './App.css';
 
+/**
+ * The App function returns a JSX element representing the structure of a React component.
+ * @returns The App component is returning a JSX element.
+ */
 function App() {
   return (
     <div className="App">
@@ -23,4 +27,7 @@ function App() {
   );
 }
 
+
 export default App;
+
+
