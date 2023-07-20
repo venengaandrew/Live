@@ -1,17 +1,15 @@
 # pull official base image
-from node:20 as build-deps
+from node:20.4-alpine3.17
 
 # set working directory
 WORKDIR /home/avenenga/drewvpopc-live
 
-ENV PATH /home/avenenga/node_modules/.bin:$PATH
-
 COPY package.json yarn.lock ./
-RUN yarn
-COPY . ./
-RUN yarn build
 
-FROM nginx:1.25.1-alpine
-COPY --from=build-deps /home/avenenga/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+RUN yarn install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
